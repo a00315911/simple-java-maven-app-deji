@@ -50,3 +50,10 @@ button {
 button:hover {
     background-color: #cca300; /* darker gold on hover */
 }
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 16px; /* Added line to increase font size */
+}
