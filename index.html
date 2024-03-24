@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-us"></html>
+<!-- Change the file name into lowercase -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create a listing</title>
+</head>
+
+<body>
+    <h1>Create a Listing</h1>
+    
+    <p>Please note that it may take up to one week 
+      for your accommodation listing to be updated on our website. 
+      We appreciate your patience during this process.</p>
+   
+  <form action="/action_page.php" target="_blank" method="post" autocomplete="on" novalidate>
+    <!--The for attribute of the label tag should be equal to the id attribute of the input element to bind them together.
+    the value entered in the "Last Name" field will be sent to the server with the key "lname". 
+    you can target this input field in JavaScript using its id
+    The <label> element is useful for screen-reader users, 
+    because the screen-reader will read out loud the label when the user focuses on the input element.-->
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname">
+    <p>Note: Only your first name will be displayed on our website.</p>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br>
+
+    <label for="phone">Phone number:<span>*</span></label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <p>Address of accommodation:</p>
+    <label for="address">Address line1:<span>*</span></label>
+    <input type="text" id="address1" name="address1" required><br>
+    <label for="address">Address line2:</label>
+    <input type="text" id="address2" name="address2"><br>
+    <label for="air_code">Air code<span>*</span></label>
+    <input type="text" id="air_code" name="air_code" required><br>
+    <label for="distance">Distance from TUS (Athlone) (km)</label>
+    <input type="text" id="distance" name="distance">
+
+    <p>Accommodation type:</p>
+<!--  House type (house or apartment); 
+  room (single, double, or ensuite); 
+  Rent (per week or per month); Duration of stay (5 or 7 days a week); 
+  Gender preference (male, female, or no preference); 
+  Year of Study Preference (1st Year Student, 2nd Year Student, 
+  3rd Year Student, 4th Year Student, Mature, PhD, Lecturer, Apprentice, or No Preference);  -->
+    <input type="radio" id="type" name="house_type" value="House">
+    <label for="type">House</label><br>
+    <input type="radio" id="apartment" name="house_type" value="Apartment">
+    <label for="apartment">Apartment</label><br>
+
+    <p>Rooms:<span>*</span></p>
+    <label for="single_room">Number of single rooms</label>
+    <input type="text" id="singer_room" name="single_room"><br>
+
+    <label for="double_room">Number of double rooms</label>
+    <input type="text" id="double_room" name="double_room"><br>
+
+    <label for="ensuite_room">Number of en-suite rooms</label>
+    <input type="text" id="ensuite_room" name="ensuite_room"><br>
+
+    <p>Duration of stay:</p>
+    <input type="radio" id="5days" name="duration_stay" value="5 days a week">
+    <label for="5days">5 days a week</label><br>
+    <input type="radio" id="7days" name="duration_stay" value="7 days a week">
+    <label for="7days">7 days a week</label><br>
+    <input type="radio" id="both" name="duration_stay" value="both">
+    <label for="both">Both are possible</label><br>
+
+    <p>Rent (€):</p>
+    <input type="text" id="rent" name="rent"><br>
+    <input type="radio" id="week" name="rent_type" value="Per week">
+    <label for="week">Per week</label><br>
+    <input type="radio" id="month" name="rent_type" value="Per month">
+    <label for="month">Per month</label><br>
+<!-- Checkboxes: bills included (Wifi, garbage collection, electricity, heating, none); 
+  meals provided (breakfast, dinner, none) -->
+    <p>Including bills of:</p>
+    <input type="checkbox" id="wifi" name="bills" value="wifi">
+    <label for="wifi"> Wifi</label><br>
+    <input type="checkbox" id="garbage" name="bills" value="garbage">
+    <label for="garbage"> Garbage collection</label><br>
+    <input type="checkbox" id="electricity" name="bills" value="electricity">
+    <label for="electricity"> Electricity</label><br>
+    <input type="checkbox" id="heating" name="bills" value="heating">
+    <label for="heating"> Heating</label>
+<!-- the last line of checkbox, <br>unnecessary -->
+    <p>Meals provided:</p>
+    <input type="checkbox" id="breakfast" name="meals" value="breakfast">
+    <label for="breakfast">Breakfast</label><br>
+    <input type="checkbox" id="dinner" name="meals" value="dinner">
+    <label for="dinner">Dinner</label><br>
+    <input type="checkbox" id="none" name="meals" value="none">
+    <label for="none">None</label>
+    
+    <p>Deposit (€):</p>
+    <input type="text" id="deposit" name="deposit"><br>
+    
+    <p>Gender preference:</p>
+    <input type="radio" id="male" name="gender_preference" value="Male">
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="gender_preference" value="Female">
+    <label for="female">Female</label><br>
+    <input type="radio" id="none" name="gender_preference" value="No preference">
+    <label for="none">No preference</label><br>
+
+    <p>Year of Study Preference:</p>
+    <input type="radio" id="year1" name="year_preference" value="Year 1">
+    <label for="year1">Year 1</label><br>
+    <input type="radio" id="year2" name="year_preference" value="Year 2">
+    <label for="year2">Year 2</label><br>
+    <input type="radio" id="year3" name="year_preference" value="Year 3">
+    <label for="year1">Year 3</label><br>
+    <input type="radio" id="year4" name="year_preference" value="Year 4">
+    <label for="year1">Year 4</label><br>
+    <input type="radio" id="mature" name="year_preference" value="Mature, PhD, Lecturer">
+    <label for="mature">Mature, PhD, Lecturer</label><br>
+    <input type="radio" id="apprentice" name="year_preference" value="Apprentice">
+    <label for="apprentice">Apprentice</label><br>
+    <input type="radio" id="none" name="year_preference" value="No preference">
+    <label for="none">No preference</label><br>
+
+    <p>Lease period:</p>
+    <input type="text" id="leasePeriod"><br>
+
+<!--upload images of their accommodation (“Images of Accommodation”)
+Clickable button: preview
+Submit button -->
+<p>Images of accommodation</p>
+<label for="images">Select a file:</label>
+<input type="file" id="images" name="images" multiple><br><br>
+<p>To select multiple files, 
+  hold down the CTRL or SHIFT key while selecting.</p>
+
+    <p>Please use this space to include any additional information about the accommodation 
+      you are listing if you wish. e.g, rules, pets, transport, a welcome message</p>
+    <textarea name="message" rows="10" cols="30">
+    </textarea>
+
+    <p>Please check this box if you have read and understood your rights and responsibilities 
+      of listing a property with TUSSU which can be found in the accommodation tab above<span>*</span></p>
+      <input type="checkbox" value="accept">
+      I have read and understood my rights and responsibilities of listing a property with TUSSU<br>
+    
+      <input type="button" value="Preview" onclick="displayUserInfo()"><br>
+      <input type="submit" value="Submit" formtarget="_blank" value="Thank you for submitting a list.">
+    </form>
+    
+    <div id="userInfoOutput"></div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
