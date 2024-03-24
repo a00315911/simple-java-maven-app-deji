@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Google Maps with Search</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        #search-bar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+        }
+    </style>
+    <!-- Include the Google Maps JavaScript API with your API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1eH3fnX3BR11Mvy3UlPNJnPrKJVQZM_M&callback=initMap" async defer></script>
+</head>
+<body>
+
+<!-- Search bar input -->
+<input id="search-bar" type="text" placeholder="Search for a location">
+
+<div id="map"></div>
+
+<script>
+    var map;
+
+    function initMap() {
+        var location = { lat: 53.425049, lng: -7.944620 };
+        map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: location
+        });
+
+        // Add a search bar to the map
+        var input = document.getElementById("search-bar");
+        var searchBox = new google.maps.places.SearchBox(input);
+
+        // Bias the SearchBox results towards the current map's viewport
+        map.addListener("bounds_changed", function () {
+            searchBox.setBounds(map.getBounds());
+        });
+
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener("places_changed", function () {
+            var places = searchBox.getPlaces();
+
+            if (places.length === 0) {
+                return;
+            }
+
+            // For each place, get the icon, name and location.
+            var bounds = new google.maps.LatLngBounds();
+            places.forEach(function (place) {
+                if (!place.geometry) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+
+                // Clear the previous markers
+                clearMarkers();
+
+                // Create a marker for the selected place
+                var marker = new google.maps.Marker({
+                    map: map,
+                    title: place.name,
+                    position: place.geometry.location
+                });
+
+                // Extend the map bounds to include the new location
+                bounds.extend(place.geometry.location);
+            });
+
+            map.fitBounds(bounds);
+        });
+    }
+
+    // Clear all markers from the map
+    function clearMarkers() {
+        // TODO: Implement this function based on your needs
+    }
+</script>
+
+</body>
+</html>
